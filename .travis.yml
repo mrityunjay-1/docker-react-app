@@ -1,0 +1,14 @@
+# we use travis for testing our builds and pushing it to the aws hosting
+
+# to provide super user level permission - and make sure that it has sudo
+sudo: required
+
+# services that must have to run our test scripts or run scripts
+services:
+  - docker
+  
+before-install:
+  - docker build -t mrityunjay2docker/docker-react-app -f Dockerfile.dev .
+  
+script:
+  - docker run mrityunjay2docker/docker-react-app -- --coverage
