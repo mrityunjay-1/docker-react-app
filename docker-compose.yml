@@ -1,0 +1,26 @@
+version: '3'
+services:
+  react-frontend:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # do not do any mapping with local files with node_modules running inside the container
+      - /app/node_modules
+      # mapping local directory:container app directory
+      - .:/app
+      
+  react-test:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
