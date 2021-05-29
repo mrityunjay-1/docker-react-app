@@ -11,4 +11,4 @@ before-install:
   - docker build -t mrityunjay2docker/docker-react-app -f Dockerfile.dev .
   
 script:
-  - docker run mrityunjay2docker/docker-react-app -- --coverage
+  - docker run mrityunjay2docker/docker-react-app npm run test -- --coverage
