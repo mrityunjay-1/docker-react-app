@@ -9,6 +9,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
           <b> Welcome, My name is Mrityunjay Kumar </b>
+          <br />
+          <b> Feature branch is added now. </b>
         </p>
         <a
           className="App-link"
